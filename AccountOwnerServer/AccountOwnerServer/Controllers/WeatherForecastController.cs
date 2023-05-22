@@ -24,5 +24,23 @@ namespace AccountOwnerServer.Controllers
 
             return new string[] { "value1", "value2" };
         }
+
+        /* Pour la partie 4 : Modèle de référentiel
+         
+        private readonly IRepositoryWrapper _repository;
+
+        public WeatherForecastController(IRepositoryWrapper repository)
+        {
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            var domesticAccounts = _repository.Account.FindByCondition(x => x.AccountType.Equals("Domesctic"));
+            var owners = _repository.Owner.FindAll();
+
+            return new string[] { "value1", "value2" };
+        }*/
     }
 }
