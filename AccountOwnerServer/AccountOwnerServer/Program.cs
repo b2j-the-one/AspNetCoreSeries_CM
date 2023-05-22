@@ -1,12 +1,16 @@
 using AccountOwnerServer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configuration du service Logger pour l'enregistrement des messages
+LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
+// Add services to the container.
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
+builder.Services.ConfigureLoggerService();
 
 builder.Services.AddControllers();
 
@@ -21,7 +25,7 @@ else
 app.UseHttpsRedirection();
 
 /**
- * ermet d'utiliser des fichiers statiques pour la requête. Si nous ne définissons pas de chemin pour les 
+ * Permet d'utiliser des fichiers statiques pour la requête. Si nous ne définissons pas de chemin pour les 
  * fichiers statiques, le dossier wwwroot de notre explorateur de solutions sera utilisé par défaut.
  */
 app.UseStaticFiles();
