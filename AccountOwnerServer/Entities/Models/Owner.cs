@@ -6,7 +6,8 @@ namespace Entities.Models
     [Table("owner")]
     public class Owner
     {
-        public Guid OwnerId { get; set; }
+        [Column("OwnerId")]
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Le nom est obligatoire")]
         [StringLength(60, ErrorMessage = "Le nom ne doit pas dépasser 60 caractères")]

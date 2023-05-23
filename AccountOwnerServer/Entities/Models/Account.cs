@@ -6,7 +6,8 @@ namespace Entities.Models
     [Table("account")]
     public class Account
     {
-        public Guid AccountId { get; set; }
+        [Column("AccountId")]
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "La date de création est obligatoire")]
         public DateTime DateCreated { get; set; }
